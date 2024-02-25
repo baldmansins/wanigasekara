@@ -1,5 +1,5 @@
 body {
-    background-image: jj.jpg;
+    background-image: url('jj.jpg'); /* Assuming jj.jpg is in the same directory as your styles.css */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
