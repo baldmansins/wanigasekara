@@ -1,10 +1,63 @@
 body {
-    background-image: url('jj.jpg'); /* Assuming jj.jpg is in the same directory as your styles.css */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
+    padding: 0;
+    background-color: #0d0d0d;
+    color: #fff;
+}
+
+header {
+    background-color: #1a1a1a;
+    padding: 20px;
     text-align: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+header p {
+    font-size: 1.2em;
+}
+
+main {
+    padding: 20px;
+}
+
+.featured-section {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.feature {
+    text-align: center;
+    margin: 20px;
+}
+
+.feature img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 8px;
+}
+
+.feature h2 {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.about-section {
+    margin-top: 40px;
+}
+
+footer {
+    background-color: #1a1a1a;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 img {
