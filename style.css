@@ -1,5 +1,9 @@
 body {
-    background-color: lightblue;
+    background-image: jj.png;
+    background-size: cover; /* Adjust this property based on your preferences */
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0; /* Remove default margin to fill the entire viewport */
     text-align: center;
 }
 
