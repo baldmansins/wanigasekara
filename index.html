@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoomed Background Video with Panning</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        #video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        #video-background {
+            position: absolute;
+            top: -20px; /* Adjust to zoom in */
+            left: -20px; /* Adjust to zoom in */
+            width: calc(100% + 40px); /* Adjust to zoom in */
+            height: calc(100% + 40px); /* Adjust to zoom in */
+            object-fit: cover;
+            transition: transform 0.3s ease-out;
+        }
+        #button-container {
+            display: none;
+            position: fixed;
+            bottom: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+        #button-container button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="video-container">
+    <video id="video-background" autoplay muted loop>
+        <source src="video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+<!-- Buttons initially hidden -->
+<div id="button-container">
+    <button id="button1">Wanigaism</button>
+    <button id="button2">Hall of Fame</button>
+</div>
+
+<script>
+    const video = document.getElementById('video-background');
+    const container = document.getElementById('video-container');
+    const buttonContainer = document.getElementById('button-container');
+    let buttonsShown = false;
+
+    container.addEventListener('mousemove', function(e) {
+        const rect = container.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const offsetX = (x - rect.width / 2) / rect.width * 50; // Adjust sensitivity
+        const offsetY = (y - rect.height / 2) / rect.height * 50; // Adjust sensitivity
+        video.style.transform = `translate(-${offsetX}px, -${offsetY}px)`;
+    });
+
+    // Show buttons at the 10-second mark
+    video.addEventListener('timeupdate', function() {
+        if (video.currentTime >= 10 && !buttonsShown) {
+            buttonContainer.style.display = 'block';
+            buttonsShown = true;
+        }
+    });
+
+    // Button functionality to redirect to "1.html"
+    document.getElementById('button1').addEventListener('click', function() {
+        window.location.href = '1.html';
+    });
+
+    document.getElementById('button2').addEventListener('click', function() {
+        window.location.href = '1.html'; // Replace '1.html' with the appropriate URL for button 2
+    });
+</script>
+
+</body>
+</html>
